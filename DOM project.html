@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM project Working_copy</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+    #tab {
+        width: 100%;
+        height: 200px;
+        background:rgb(241, 163, 16);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+   
+    #inputTab_btn {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        color: brown;
+    }
+    #userInput {
+        width: 30%;
+        text-align: center;
+        font-size: medium;
+        border-radius: 3px;
+    }
+    #btn_generate{
+        width: 15%;
+        background: blue;
+        border-radius: 5px;
+        font-size: medium;
+        margin-right: 10px;
+    }
+    #btn_stop {
+        width: 10%;
+        background:red;
+        border-radius: 5px;
+        font-size: medium;
+    }
+
+    #flex_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+    }
+    .colorDiv {      
+        display: flex;
+        border-radius: 5px;
+        width: 95%;
+        margin: 2px 0px; 
+        padding: 10px;
+        justify-content: space-between;   
+    }
+
+    button {
+         height: 20px;     
+    }
+    .displayContet2 {
+    text-align: end;
+    }
+      
+
+
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <h1 id="inputTabMessage">Hexadecimal & RGB Color Code Generator</h1>
+        <div id="inputTab_btn">
+            <input id="userInput" type="text"  placeholder="Type Number Here">
+            <button id="btn_generate"> Generate Color </button>
+        <!--<button id="btn_stop" class="btn_css">Stop Refresh</button>-->
+            <button  id="btn_stop"  name="data" type="button" onclick="getData(); return false;">Stop Refresh</button>
+        </div>
+        <div>
+            <p> Bring cursor on the color to stop Refresh and vice versa</p>
+        </div>
+    </div>
+     <div id="flex_container">
+    </div>
+
+
+
+
+    <script src="./DOM project.js"></script>
+</body>
+
+
+</html>
