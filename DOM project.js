@@ -1,10 +1,9 @@
 const userInput= document.querySelector('#userInput')
 const btn= document.querySelector('#btn_generate')
 const container=document.querySelector('#flex_container')
-const inputTab=document.querySelector('#tab')
-const btnStop=document
+const inputTab=document.querySelector('#tab') 
 
-                  //Copy Function
+//Copy Function
 const copyFunction=(element)=> {
 let fakeTextArea = document.createElement("textarea");
 fakeTextArea.value = element.textContent; //element is the js variable which content to be copied
@@ -29,9 +28,13 @@ let arrNum= arr.map( z => parseInt(z)>=0 ? parseInt(z): numObj[z])
 let rgb= ` rgb(${arrNum[0]*16+arrNum[1]},${arrNum[2]*16+arrNum[3]},${arrNum[4]*16+arrNum[5]})`
 return rgb
 }
+inputTab.style.background=hexaColorGenerator()
+interval = setInterval(function(){
+ inputTab.style.background=hexaColorGenerator()
+ },5000)
 
 let n=10 //  color div generator
-let colorDivGenerator= function (n=10){
+let colorDivGenerator= function (n){
 document.querySelector('#flex_container').innerHTML=''
 
 for(i=0; i<n; i++){ 
@@ -50,9 +53,9 @@ for(i=0; i<n; i++){
     div.style.color='black'
 
     const colorInterval= function(){
-        randomHexaColor=hexaColorGenerator() //bgcolor
-        randomRgbColor= hexaToRgb(randomHexaColor)//
-        rgbCode.textContent=randomRgbColor  //
+        randomHexaColor=hexaColorGenerator() 
+        randomRgbColor= hexaToRgb(randomHexaColor)
+        rgbCode.textContent=randomRgbColor 
        hexaCode.textContent= randomHexaColor
        div.style.background= randomHexaColor
        }
