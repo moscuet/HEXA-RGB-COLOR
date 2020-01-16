@@ -2,7 +2,8 @@ const userInput= document.querySelector('#userInput')
 const btn= document.querySelector('#btn_generate')
 const container=document.querySelector('#flex_container')
 const inputTab=document.querySelector('#tab') 
-
+let n
+let notClick=true
 //Copy Function
 const copyFunction=(element)=> {
 let fakeTextArea = document.createElement("textarea");
@@ -20,7 +21,7 @@ for(let i=0; i<6;i++){
     hexaColor+=colorCode[randNum]
 } return hexaColor
 }
-                // hexacoor to rgb color
+// hexacoor to rgb color
 const hexaToRgb= (hexacol) => {
 const numObj = {A:10, B:11,C:12,D:13,E:14,F:15}
 let arr=hexacol.replace('#','').split('')
@@ -28,13 +29,14 @@ let arrNum= arr.map( z => parseInt(z)>=0 ? parseInt(z): numObj[z])
 let rgb= ` rgb(${arrNum[0]*16+arrNum[1]},${arrNum[2]*16+arrNum[3]},${arrNum[4]*16+arrNum[5]})`
 return rgb
 }
+
 inputTab.style.background=hexaColorGenerator()
 interval = setInterval(function(){
  inputTab.style.background=hexaColorGenerator()
  },5000)
 
-let n=10 //  color div generator
-let colorDivGenerator= function (n){
+//  color div generator
+let colorDivGenerator= function (n=10){
 document.querySelector('#flex_container').innerHTML=''
 
 for(i=0; i<n; i++){ 
@@ -51,21 +53,28 @@ for(i=0; i<n; i++){
     copyButton2.textContent='copy rgb'
     div.style.height='100px'
     div.style.color='black'
-
-    const colorInterval= function(){
+    
+    
+    
+       const assignColor= function(){
         randomHexaColor=hexaColorGenerator() 
         randomRgbColor= hexaToRgb(randomHexaColor)
         rgbCode.textContent=randomRgbColor 
-       hexaCode.textContent= randomHexaColor
-       div.style.background= randomHexaColor
+        hexaCode.textContent= randomHexaColor
+        div.style.background= randomHexaColor
        }
-    
-    colorInterval()   
-    let interval = setInterval(colorInterval,2000) 
+       assignColor()
+    let interval = setInterval(assignColor,2000) 
+
     div.addEventListener('mouseover', ()=>clearInterval(interval))
     div.addEventListener('mouseout', function(){ 
-    interval=setInterval( () =>colorInterval(),2000)})
+    if(notClick) {interval=setInterval( () =>assignColor(),2000)}
+    })
     
+    document.querySelector('#btn_stop').addEventListener('click', ()=> {
+    clearInterval(interval)
+    notClick=false
+})
     copyButton1.addEventListener("click", ()=>copyFunction(hexaCode));
     copyButton2.addEventListener("click", ()=> copyFunction(rgbCode));
     displayContet1.append(hexaCode,copyButton1)
@@ -76,11 +85,11 @@ for(i=0; i<n; i++){
 
 
 
-colorDivGenerator(n)
+colorDivGenerator()
 
 btn.addEventListener('click',function(){    
-  n=userInput.value
-  colorDivGenerator(n)
+ let m =userInput.value
+  colorDivGenerator(m)
 })
 
 
@@ -112,7 +121,7 @@ btn.addEventListener('click',function(){
 // container.addEventListener('mouseover', ()=>clearInterval(interval))
 // container.addEventListener('mouseout', function(){
 // interval=setInterval( () =>colorDivGenerator(),2000)})
-// document.querySelector('#btn_stop').addEventListener('click', ()=> clearInterval(interval))
+document.querySelector('#btn_stop').addEventListener('click', ()=> clearInterval(interval))
 
 
 
