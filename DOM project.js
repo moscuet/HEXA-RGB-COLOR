@@ -31,7 +31,7 @@ return rgb
 }
 
 let n=10 //  color div generator
-let colorDivGenerator= function (n){
+let colorDivGenerator= function (n=10){
 document.querySelector('#flex_container').innerHTML=''
 
 for(i=0; i<n; i++){ 
