@@ -3,7 +3,7 @@ const btn = document.querySelector ('#btn_generate')
 const container = document.querySelector ('#flex_container')
 const inputTab = document.querySelector ('#tab') 
 const btn_stop = document.querySelector( '#btn_stop')
-let notClick 
+let notClick =true
 //==================================== Copy Function =============================
 const copyFunction=(element)=> {
 let fakeTextArea = document.createElement("textarea");
@@ -66,19 +66,12 @@ for(i = 0; i < n;  i++ )  {
 
     let interval = setInterval(assignColor,2000) 
     
-    div.addEventListener ('mouseover', () => 
-    {clearInterval(interval)
-    notClick=true
-    })
-   
+    div.addEventListener ('mouseover', () => clearInterval(interval))
     div.addEventListener ('mouseout', function() { 
-    if (notClick) { interval  =  setInterval( () => assignColor(),2000)}
+    interval  =  setInterval( () => assignColor(),2000)
     })
-    
-    btn_stop.addEventListener('click', () => {
-    clearInterval(interval)
-    notClick=false
-})
+    btn_stop.addEventListener('click', () =>  clearInterval(interval))
+
     copyButton1.addEventListener ("click", ()=>  copyFunction(hexaCode));
     copyButton2.addEventListener ("click", ()=>  copyFunction(rgbCode));
     displayContet1.append(hexaCode,copyButton1)
@@ -89,11 +82,28 @@ for(i = 0; i < n;  i++ )  {
 
 colorDivGenerator()
 btn.addEventListener('click',function(){    
- let m = userInput.value
- colorDivGenerator(m)
+    let m = userInput.value
+    if ( m > 0 && m <= 200 ) { 
+        colorDivGenerator(m)
+    }
+    else { 
+        alert ("Please type a number between 1 and 1000!")
+    } 
 })
 
 
+//(m>0)? colorDivGenerator(m) : alert("Hello! I am an alert box!!")
+
+// if(m>5 && m<=200 ){ 
+//             inputTabMessage.textContent='Type How many Random color you want'
+//             inputTabMessage.style.color='black'
+//             document.querySelector('#flex_container').innerHTML=''
+//             colorGenerator(m)
+//            }
+//            else if(m>200){ 
+//            inputTabMessage.textContent='CANNOT PRODUCE MORE THAN 200 RANDOM COLOR'
+//            inputTabMessage.style.color='red'
+//            } }, 50000);
 
 
 
