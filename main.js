@@ -3,7 +3,7 @@ const btn = document.querySelector ('#btn_generate')
 const container = document.querySelector ('#flex_container')
 const inputTab = document.querySelector ('#tab') 
 const btn_stop = document.querySelector( '#btn_stop')
-let notClick =true
+
 //==================================== Copy Function =============================
 const copyFunction=(element)=> {
 let fakeTextArea = document.createElement("textarea");
@@ -50,8 +50,8 @@ for(i = 0; i < n;  i++ )  {
     let displayContet2 = document.createElement('div')
     div.setAttribute('class','colorDiv') 
     displayContet2.setAttribute('class','displayContet2') 
-    copyButton1.textContent = 'copy hexa'
-    copyButton2.textContent = 'copy rgb'
+    copyButton1.textContent = 'copy'
+    copyButton2.textContent = 'copy'
     div.style.height='120px'
     div.style.color='black'
     
@@ -84,7 +84,6 @@ colorDivGenerator()
 btn.addEventListener('click',function(){    
     let m = userInput.value
     if ( m > 0 && m <= 200 ) { 
-
         colorDivGenerator(m)
     }
     else { 
