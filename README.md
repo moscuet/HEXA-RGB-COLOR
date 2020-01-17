@@ -1,7 +1,3 @@
 # Hexadecimal & RGB Color Code Generator
 ### It Create randomom color with Hexa and Rgb code
-http://github.com - automatic!
-
-
-http://github.com - automatic!
-[GitHub](http://github.com)
+[DEMO](https://moscuet.github.io/HEXA-RGB-COLOR/)
