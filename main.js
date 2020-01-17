@@ -52,7 +52,7 @@ for(i = 0; i < n;  i++ )  {
     displayContet2.setAttribute('class','displayContet2') 
     copyButton1.textContent = 'copy hexa'
     copyButton2.textContent = 'copy rgb'
-    div.style.height='100px'
+    div.style.height='120px'
     div.style.color='black'
     
     const assignColor= function(){
@@ -84,9 +84,11 @@ colorDivGenerator()
 btn.addEventListener('click',function(){    
     let m = userInput.value
     if ( m > 0 && m <= 200 ) { 
+
         colorDivGenerator(m)
     }
     else { 
         alert ("Please type a number between 1 and 1000!")
     } 
 })
+
