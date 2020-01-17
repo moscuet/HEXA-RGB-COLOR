@@ -1,3 +1,3 @@
-#Hexadecimal & RGB Color Code Generator
-#**#Hexadecimal & RGB Color Code Generator
-**##Hexadecimal & RGB Color Code Generator
+# This is an <h1> tag
+## This is an <h2> tag
+###### This is an <h6> tag
