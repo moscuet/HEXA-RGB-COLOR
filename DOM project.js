@@ -3,7 +3,7 @@ const btn = document.querySelector ('#btn_generate')
 const container = document.querySelector ('#flex_container')
 const inputTab = document.querySelector ('#tab') 
 const btn_stop = document.querySelector( '#btn_stop')
-let notClick = true
+let notClick 
 //==================================== Copy Function =============================
 const copyFunction=(element)=> {
 let fakeTextArea = document.createElement("textarea");
@@ -37,6 +37,7 @@ interval = setInterval ( function() {
 
 // =================================      color div generator         ===============================
 let colorDivGenerator= function (n = 10)  {
+
 document.querySelector('#flex_container').innerHTML = ''
 
 for(i = 0; i < n;  i++ )  { 
@@ -62,9 +63,14 @@ for(i = 0; i < n;  i++ )  {
         div.style.background = randomHexaColor
     }
     assignColor()
-    let interval = setInterval(assignColor,2000) 
 
-    div.addEventListener ('mouseover', () => clearInterval(interval))
+    let interval = setInterval(assignColor,2000) 
+    
+    div.addEventListener ('mouseover', () => 
+    {clearInterval(interval)
+    notClick=true
+    })
+   
     div.addEventListener ('mouseout', function() { 
     if (notClick) { interval  =  setInterval( () => assignColor(),2000)}
     })
@@ -84,7 +90,7 @@ for(i = 0; i < n;  i++ )  {
 colorDivGenerator()
 btn.addEventListener('click',function(){    
  let m = userInput.value
-  colorDivGenerator(m)
+ colorDivGenerator(m)
 })
 
 
