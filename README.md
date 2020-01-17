@@ -1,1 +1,1 @@
-# This is an
+#Hexadecimal & RGB Color Code Generator
